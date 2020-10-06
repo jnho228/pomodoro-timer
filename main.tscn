@@ -1,0 +1,297 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://session_finished.wav" type="AudioStream" id=1]
+[ext_resource path="res://timer_bar.png" type="Texture" id=2]
+[ext_resource path="res://Kenney High.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://stop.png" type="Texture" id=4]
+[ext_resource path="res://right.png" type="Texture" id=5]
+[ext_resource path="res://gear.png" type="Texture" id=6]
+[ext_resource path="res://checkmark.png" type="Texture" id=7]
+[ext_resource path="res://main.gd" type="Script" id=8]
+[ext_resource path="res://break_finished.wav" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 75
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 175
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 75
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 66
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+SpinBox/fonts/SpinBox = null
+
+[node name="Main" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.788235, 0.788235, 0.788235, 1 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+session_color = Color( 0.631373, 0.870588, 0.819608, 1 )
+break_color = Color( 0.576471, 0.384314, 0.74902, 1 )
+default_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+session_finished_sound = ExtResource( 1 )
+break_finished_sound = ExtResource( 9 )
+
+[node name="SessionLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -278.0
+margin_top = 32.0
+margin_right = 278.0
+margin_bottom = 99.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+text = "Let's get started."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -176.0
+margin_top = -267.797
+margin_right = 184.0
+margin_bottom = 92.2031
+max_value = 60.0
+value = 60.0
+texture_progress = ExtResource( 2 )
+fill_mode = 5
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimerLabel" type="Label" parent="TextureProgress"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -138.0
+margin_top = -100.0
+margin_right = 148.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 10
+custom_constants/shadow_offset_y = 3
+text = "25:00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayPauseButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -107.397
+margin_top = 113.189
+margin_right = 4.60303
+margin_bottom = 219.189
+icon = ExtResource( 5 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StopButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 22.7106
+margin_top = 113.189
+margin_right = 134.711
+margin_bottom = 219.189
+icon = ExtResource( 4 )
+flat = true
+
+[node name="SettingsButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -112.0
+margin_top = -106.0
+icon = ExtResource( 6 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.101961, 0.101961, 0.929412 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsLabel" type="Label" parent="Settings"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -138.0
+margin_top = 32.0
+margin_right = 138.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="SessionLengthLabel" type="Label" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -260.0
+margin_right = 145.0
+margin_bottom = -172.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+text = "Session Time"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SessionTime" type="SpinBox" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -73.5
+margin_top = -173.5
+margin_right = 73.5
+margin_bottom = -82.5
+theme = SubResource( 6 )
+max_value = 120.0
+value = 25.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShortBreakLengthLabel" type="Label" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -201.0
+margin_top = -76.0
+margin_right = 201.0
+margin_bottom = 12.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+text = "Short Break Time"
+align = 1
+valign = 1
+
+[node name="ShortSessionTime" type="SpinBox" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -73.5
+margin_top = 10.5
+margin_right = 73.5
+margin_bottom = 101.5
+theme = SubResource( 6 )
+max_value = 30.0
+value = 5.0
+align = 1
+
+[node name="LongBreakLengthLabel" type="Label" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -187.5
+margin_top = 108.0
+margin_right = 187.5
+margin_bottom = 196.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
+text = "Long Break Time"
+align = 1
+valign = 1
+
+[node name="LongSessionTime" type="SpinBox" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -73.5
+margin_top = 194.5
+margin_right = 73.5
+margin_bottom = 285.5
+theme = SubResource( 6 )
+max_value = 60.0
+value = 15.0
+align = 1
+
+[node name="ReturnButton" type="Button" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -56.0
+margin_top = -106.0
+margin_right = 56.0
+icon = ExtResource( 7 )
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[connection signal="pressed" from="PlayPauseButton" to="." method="_on_PlayPauseButton_pressed"]
+[connection signal="pressed" from="StopButton" to="." method="_on_StopButton_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="pressed" from="Settings/ReturnButton" to="." method="_on_ReturnButton_pressed"]

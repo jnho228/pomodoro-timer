@@ -67,6 +67,8 @@ func _process(delta):
 		
 		if current_session_tally > 7:
 			current_session_tally = 0
+		
+		OS.request_attention() # Make it flash to show we're ready!
 
 
 func _on_PlayPauseButton_pressed():

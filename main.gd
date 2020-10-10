@@ -7,6 +7,11 @@ export var session_color: Color
 export var break_color: Color
 export var default_color: Color
 
+export var not_started_text: String
+export var session_text: String
+export var short_break_text: String
+export var long_break_text: String
+
 export var session_finished_sound: AudioStream
 export var break_finished_sound: AudioStream
 
@@ -29,6 +34,8 @@ var second_counter := 1.0
 
 func _ready():
 	load_settings()
+	$SessionLabel.text = not_started_text
+	color = default_color
 
 
 func _process(delta):
@@ -78,15 +85,15 @@ func _on_PlayPauseButton_pressed():
 	if current_time <= 0: # change it here later !
 		if current_session_tally == 0 || current_session_tally == 2 || current_session_tally == 4 || current_session_tally == 6:
 			current_time = session_time * 60
-			$SessionLabel.text = "Let's focus!"
+			$SessionLabel.text = session_text
 			color = session_color
 		elif current_session_tally == 1 || current_session_tally == 3 || current_session_tally == 5:
 			current_time = short_break_time * 60
-			$SessionLabel.text = "Take a break!"
+			$SessionLabel.text = short_break_text
 			color = break_color
 		else:
 			current_time = long_break_time * 60
-			$SessionLabel.text = "Time to relax!"
+			$SessionLabel.text = long_break_text
 			color = break_color
 		
 		$TextureProgress.max_value = current_time
@@ -105,13 +112,14 @@ func _on_StopButton_pressed():
 	current_session_tally = 0
 	current_time = 0
 	
-	$SessionLabel.text = "Let's get started."
+	$SessionLabel.text = not_started_text
 	color = default_color
 
 
 
 func _on_SettingsButton_pressed():
-	$Settings.show()
+	#$Settings.show()
+	$Settings/AnimationPlayer.play("show")
 
 
 func _on_ReturnButton_pressed(): 
@@ -122,7 +130,8 @@ func _on_ReturnButton_pressed():
 	
 	save_settings()
 	
-	$Settings.hide()
+	#$Settings.hide()
+	$Settings/AnimationPlayer.play("hide")
 
 
 func save_data():

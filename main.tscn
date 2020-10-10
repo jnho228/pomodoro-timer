@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://session_finished.wav" type="AudioStream" id=1]
 [ext_resource path="res://timer_bar.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://stop.png" type="Texture" id=4]
 [ext_resource path="res://right.png" type="Texture" id=5]
 [ext_resource path="res://gear.png" type="Texture" id=6]
-[ext_resource path="res://checkmark.png" type="Texture" id=7]
+[ext_resource path="res://white checkmark.png" type="Texture" id=7]
 [ext_resource path="res://main.gd" type="Script" id=8]
 [ext_resource path="res://break_finished.wav" type="AudioStream" id=9]
 
@@ -46,17 +46,53 @@ font_data = ExtResource( 3 )
 default_font = SubResource( 5 )
 SpinBox/fonts/SpinBox = null
 
+[sub_resource type="Animation" id=8]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 800 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 800 ), Vector2( 0, 0 ) ]
+}
+
 [node name="Main" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.788235, 0.788235, 0.788235, 1 )
+color = Color( 0.239216, 0.494118, 0.65098, 1 )
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-session_color = Color( 0.631373, 0.870588, 0.819608, 1 )
-break_color = Color( 0.576471, 0.384314, 0.74902, 1 )
-default_color = Color( 0.788235, 0.788235, 0.788235, 1 )
+session_color = Color( 1, 0.647059, 0.647059, 1 )
+break_color = Color( 0.360784, 0.588235, 0.619608, 1 )
+default_color = Color( 0.239216, 0.494118, 0.65098, 1 )
+not_started_text = "Let's start!"
+session_text = "Time to work."
+short_break_text = "Take a break!"
+long_break_text = "Let's relax. :)"
 session_finished_sound = ExtResource( 1 )
 break_finished_sound = ExtResource( 9 )
 
@@ -71,7 +107,6 @@ custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 5
-text = "Let's get started."
 align = 1
 valign = 1
 __meta__ = {
@@ -157,9 +192,10 @@ __meta__ = {
 }
 
 [node name="Settings" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 800.0
+margin_bottom = 800.0
 color = Color( 0.101961, 0.101961, 0.101961, 0.929412 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -289,6 +325,15 @@ margin_top = -106.0
 margin_right = 56.0
 icon = ExtResource( 7 )
 flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Settings"]
+playback_speed = 2.0
+anims/hide = SubResource( 8 )
+anims/show = SubResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_PlayPauseButton_pressed"]

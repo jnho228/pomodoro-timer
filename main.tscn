@@ -6,7 +6,7 @@
 [ext_resource path="res://stop.png" type="Texture" id=4]
 [ext_resource path="res://right.png" type="Texture" id=5]
 [ext_resource path="res://gear.png" type="Texture" id=6]
-[ext_resource path="res://white checkmark.png" type="Texture" id=7]
+[ext_resource path="res://checkmark.png" type="Texture" id=7]
 [ext_resource path="res://main.gd" type="Script" id=8]
 [ext_resource path="res://break_finished.wav" type="AudioStream" id=9]
 
@@ -46,9 +46,8 @@ font_data = ExtResource( 3 )
 default_font = SubResource( 5 )
 SpinBox/fonts/SpinBox = null
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "hide"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -56,15 +55,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 800 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 200 ), Vector2( 0, 800 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "show"
-length = 0.5
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -72,10 +69,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 800 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 800 ), Vector2( 0, 600 ), Vector2( 0, 0 ) ]
 }
 
 [node name="Main" type="ColorRect"]
@@ -156,12 +153,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -107.397
-margin_top = 113.189
-margin_right = 4.60303
-margin_bottom = 219.189
+margin_left = -119.397
+margin_top = 201.189
+margin_right = -7.39697
+margin_bottom = 307.189
+focus_mode = 0
+enabled_focus_mode = 0
 icon = ExtResource( 5 )
 flat = true
+expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -171,20 +171,26 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 22.7106
-margin_top = 113.189
-margin_right = 134.711
-margin_bottom = 219.189
+margin_left = 10.7106
+margin_top = 198.189
+margin_right = 122.711
+margin_bottom = 304.189
+focus_mode = 0
+enabled_focus_mode = 0
 icon = ExtResource( 4 )
 flat = true
+expand_icon = true
 
 [node name="SettingsButton" type="Button" parent="."]
-anchor_left = 1.0
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -112.0
+margin_left = -56.0
 margin_top = -106.0
+margin_right = 56.0
+focus_mode = 0
+enabled_focus_mode = 0
 icon = ExtResource( 6 )
 flat = true
 __meta__ = {
@@ -196,7 +202,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 800.0
 margin_bottom = 800.0
-color = Color( 0.101961, 0.101961, 0.101961, 0.929412 )
+color = Color( 0.988235, 0.854902, 0.854902, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -332,8 +338,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Settings"]
 playback_speed = 2.0
-anims/hide = SubResource( 8 )
-anims/show = SubResource( 7 )
+anims/hide = SubResource( 7 )
+anims/show = SubResource( 8 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 [connection signal="pressed" from="PlayPauseButton" to="." method="_on_PlayPauseButton_pressed"]

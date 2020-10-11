@@ -31,9 +31,11 @@ gdscript/completion/autocomplete_setters_and_getters=true
 
 window/size/width=600
 window/size/height=800
+window/size/resizable=false
 window/dpi/allow_hidpi=true
 window/vsync/use_vsync=false
 window/energy_saving/keep_screen_on=false
+window/handheld/orientation="portrait"
 
 [rendering]
 

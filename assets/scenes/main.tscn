@@ -1,46 +1,46 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://session_finished.wav" type="AudioStream" id=1]
-[ext_resource path="res://timer_bar.png" type="Texture" id=2]
-[ext_resource path="res://Kenney High.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://stop.png" type="Texture" id=4]
-[ext_resource path="res://right.png" type="Texture" id=5]
-[ext_resource path="res://gear.png" type="Texture" id=6]
-[ext_resource path="res://checkmark.png" type="Texture" id=7]
-[ext_resource path="res://main.gd" type="Script" id=8]
-[ext_resource path="res://break_finished.wav" type="AudioStream" id=9]
+[ext_resource path="res://Kenney High.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/scenes/main.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/break_finished.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/textures/timer_bar.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/checkmark.png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/right.png" type="Texture" id=6]
+[ext_resource path="res://assets/audio/session_finished.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/textures/stop.png" type="Texture" id=8]
+[ext_resource path="res://assets/textures/gear.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 75
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 175
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 100
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 75
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 66
 use_filter = true
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=6]
 default_font = SubResource( 5 )
@@ -79,7 +79,7 @@ tracks/0/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.239216, 0.494118, 0.65098, 1 )
-script = ExtResource( 8 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -90,8 +90,8 @@ not_started_text = "Let's start!"
 session_text = "Time to work."
 short_break_text = "Take a break!"
 long_break_text = "Let's relax. :)"
-session_finished_sound = ExtResource( 1 )
-break_finished_sound = ExtResource( 9 )
+session_finished_sound = ExtResource( 7 )
+break_finished_sound = ExtResource( 3 )
 
 [node name="SessionLabel" type="Label" parent="."]
 anchor_left = 0.5
@@ -121,7 +121,7 @@ margin_right = 184.0
 margin_bottom = 92.2031
 max_value = 60.0
 value = 60.0
-texture_progress = ExtResource( 2 )
+texture_progress = ExtResource( 4 )
 fill_mode = 5
 nine_patch_stretch = true
 __meta__ = {
@@ -159,7 +159,7 @@ margin_right = -7.39697
 margin_bottom = 307.189
 focus_mode = 0
 enabled_focus_mode = 0
-icon = ExtResource( 5 )
+icon = ExtResource( 6 )
 flat = true
 expand_icon = true
 __meta__ = {
@@ -177,7 +177,7 @@ margin_right = 122.711
 margin_bottom = 304.189
 focus_mode = 0
 enabled_focus_mode = 0
-icon = ExtResource( 4 )
+icon = ExtResource( 8 )
 flat = true
 expand_icon = true
 
@@ -191,7 +191,7 @@ margin_top = -106.0
 margin_right = 56.0
 focus_mode = 0
 enabled_focus_mode = 0
-icon = ExtResource( 6 )
+icon = ExtResource( 9 )
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -202,7 +202,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 800.0
 margin_bottom = 800.0
-color = Color( 0.988235, 0.854902, 0.854902, 1 )
+color = Color( 0.988235, 0.854902, 0.854902, 0.803922 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -331,7 +331,7 @@ margin_top = -106.0
 margin_right = 56.0
 focus_mode = 0
 enabled_focus_mode = 0
-icon = ExtResource( 7 )
+icon = ExtResource( 5 )
 flat = true
 expand_icon = true
 __meta__ = {

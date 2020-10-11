@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/white checkmark.png-b7a19f9b7541ead563bf68835b659a31.stex"
+path="res://.import/timer_bar.png-33d3fca56f392de2ea623e1c81368431.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://white checkmark.png"
-dest_files=[ "res://.import/white checkmark.png-b7a19f9b7541ead563bf68835b659a31.stex" ]
+source_file="res://assets/textures/timer_bar.png"
+dest_files=[ "res://.import/timer_bar.png-33d3fca56f392de2ea623e1c81368431.stex" ]
 
 [params]
 

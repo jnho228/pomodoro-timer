@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/timer_bar.png-c6d41064068932a55f228cf82269fa64.stex"
+path="res://.import/background.png-db55ec47224fbca7de3496d6823058f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://timer_bar.png"
-dest_files=[ "res://.import/timer_bar.png-c6d41064068932a55f228cf82269fa64.stex" ]
+source_file="res://assets/textures/background.png"
+dest_files=[ "res://.import/background.png-db55ec47224fbca7de3496d6823058f9.stex" ]
 
 [params]
 

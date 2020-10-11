@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/checkmark.png-a808dfdadaae9011609e1f159c1cb1d1.stex"
+path="res://.import/gear.png-de6059477d50724e86e92d156e2938d5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://checkmark.png"
-dest_files=[ "res://.import/checkmark.png-a808dfdadaae9011609e1f159c1cb1d1.stex" ]
+source_file="res://assets/textures/gear.png"
+dest_files=[ "res://.import/gear.png-de6059477d50724e86e92d156e2938d5.stex" ]
 
 [params]
 

@@ -15,8 +15,8 @@ export var long_break_text: String
 export var session_finished_sound: AudioStream
 export var break_finished_sound: AudioStream
 
-var play_texture := preload("res://right.png")
-var pause_texture := preload("res://pause.png")
+var play_texture := preload("res://assets/textures/right.png")
+var pause_texture := preload("res://assets/textures/pause.png")
 
 var is_timer_running := false
 

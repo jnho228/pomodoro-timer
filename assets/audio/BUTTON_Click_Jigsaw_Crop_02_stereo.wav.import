@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BUTTON_Click_Jigsaw_Crop_02_stereo.wav-e38918ff2c1c3375b4d8c7c9d3e9dcda.sample"
+
+[deps]
+
+source_file="res://assets/audio/BUTTON_Click_Jigsaw_Crop_02_stereo.wav"
+dest_files=[ "res://.import/BUTTON_Click_Jigsaw_Crop_02_stereo.wav-e38918ff2c1c3375b4d8c7c9d3e9dcda.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

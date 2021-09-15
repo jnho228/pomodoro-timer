@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BUTTON_Click_Electric_Sander_Faded_01_stereo.wav-bf768d7c0e6cf133a46000eaf0fc4781.sample"
+
+[deps]
+
+source_file="res://assets/audio/BUTTON_Click_Electric_Sander_Faded_01_stereo.wav"
+dest_files=[ "res://.import/BUTTON_Click_Electric_Sander_Faded_01_stereo.wav-bf768d7c0e6cf133a46000eaf0fc4781.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

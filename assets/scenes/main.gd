@@ -14,6 +14,12 @@ export var long_break_text: String
 
 export var session_finished_sound: AudioStream
 export var break_finished_sound: AudioStream
+export var show_settings_sound: AudioStream
+export var hide_settings_sound: AudioStream
+
+export var start_timer_sound: AudioStream
+export var pause_timer_sound: AudioStream
+export var reset_timer_sound: AudioStream
 
 var play_texture := preload("res://assets/textures/right.png")
 var pause_texture := preload("res://assets/textures/pause.png")
@@ -49,7 +55,7 @@ func _process(delta):
 		second_counter -= delta
 	
 	# Text Display
-	var current_minutes := int(current_time / 60)
+	var current_minutes := int(current_time / 60.0)
 	var current_seconds := stepify(fmod(current_time, 60), 0)
 	var min_text := str(current_minutes)
 	var sec_text = str(current_seconds)
@@ -81,6 +87,9 @@ func _process(delta):
 func _on_PlayPauseButton_pressed():
 	is_timer_running = !is_timer_running
 	$PlayPauseButton.icon = pause_texture if is_timer_running else play_texture
+	
+	$AudioStreamPlayer.stream = start_timer_sound if is_timer_running else pause_timer_sound
+	$AudioStreamPlayer.play()
 	
 	if current_time <= 0: # change it here later !
 		if current_session_tally == 0 || current_session_tally == 2 || current_session_tally == 4 || current_session_tally == 6:
@@ -114,12 +123,17 @@ func _on_StopButton_pressed():
 	
 	$SessionLabel.text = not_started_text
 	color = default_color
+	
+	$AudioStreamPlayer.stream = reset_timer_sound
+	$AudioStreamPlayer.play()
 
 
 
 func _on_SettingsButton_pressed():
 	#$Settings.show()
 	$Settings/AnimationPlayer.play("show")
+	$AudioStreamPlayer.stream = show_settings_sound
+	$AudioStreamPlayer.play()
 
 
 func _on_ReturnButton_pressed(): 
@@ -132,6 +146,8 @@ func _on_ReturnButton_pressed():
 	
 	#$Settings.hide()
 	$Settings/AnimationPlayer.play("hide")
+	$AudioStreamPlayer.stream = hide_settings_sound
+	$AudioStreamPlayer.play()
 
 
 func save_data():
@@ -147,17 +163,17 @@ func save_data():
 
 func save_settings():
 	var save_settings = File.new()
-	save_settings.open("user://pomodoro_settings.save", File.WRITE)
+	save_settings.open("user://settings.save", File.WRITE)
 	save_settings.store_line(to_json(save_data()))
 	save_settings.close()
 
 
 func load_settings():
 	var save_settings = File.new()
-	if not save_settings.file_exists("user://pomodoro_settings.save"):
+	if not save_settings.file_exists("user://settings.save"):
 		return
 	
-	save_settings.open("user://pomodoro_settings.save", File.READ)
+	save_settings.open("user://settings.save", File.READ)
 	#while save_settings.get_position() < save_settings.get_len():
 	
 	var setting_data = parse_json(save_settings.get_line())

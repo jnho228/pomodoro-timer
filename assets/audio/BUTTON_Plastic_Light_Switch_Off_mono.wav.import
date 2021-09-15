@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BUTTON_Plastic_Light_Switch_Off_mono.wav-4716a8e14eeaec1b2318b84033c64993.sample"
+
+[deps]
+
+source_file="res://assets/audio/BUTTON_Plastic_Light_Switch_Off_mono.wav"
+dest_files=[ "res://.import/BUTTON_Plastic_Light_Switch_Off_mono.wav-4716a8e14eeaec1b2318b84033c64993.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

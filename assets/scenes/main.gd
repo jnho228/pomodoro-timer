@@ -138,9 +138,9 @@ func _on_SettingsButton_pressed():
 
 func _on_ReturnButton_pressed(): 
 	# will make sure the entered text is fine
-	session_time = $Settings/SessionTime.value
-	short_break_time = $Settings/ShortSessionTime.value
-	long_break_time = $Settings/LongSessionTime.value
+	session_time = $Settings/GridContainer/SessionTime.value
+	short_break_time = $Settings/GridContainer/ShortSessionTime.value
+	long_break_time = $Settings/GridContainer/LongSessionTime.value
 	
 	save_settings()
 	
@@ -181,9 +181,9 @@ func load_settings():
 	short_break_time = setting_data["short_break_time"]
 	long_break_time = setting_data["long_break_time"]
 	
-	$Settings/SessionTime.value = session_time
-	$Settings/ShortSessionTime.value = short_break_time
-	$Settings/LongSessionTime.value = long_break_time
+	$Settings/GridContainer/SessionTime.value = session_time
+	$Settings/GridContainer/ShortSessionTime.value = short_break_time
+	$Settings/GridContainer/LongSessionTime.value = long_break_time
 	
 	$TextureProgress/TimerLabel.text = str(session_time) + ":00"
 	
